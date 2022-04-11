@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_management/models/task_model.dart';
+import 'package:uuid/uuid.dart';
 
 class TaskItemScreen extends StatefulWidget {
   final Function(TaskModel) onCreate;
@@ -68,6 +69,14 @@ class _TaskItemScreenState extends State<TaskItemScreen> {
   }
 
   Widget buildButton() {
-    return ElevatedButton(onPressed: () {}, child: const Text('Create Task'));
+    return ElevatedButton(
+        onPressed: () {
+          final taskItem = TaskModel(
+            id: Uuid().v1(),
+            taskName: _taskNameController.text,
+          );
+          widget.onCreate(taskItem);
+        },
+        child: const Text('Create Task'));
   }
 }

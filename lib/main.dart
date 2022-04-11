@@ -13,8 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => TaskManager())],
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => TaskManager(),
+        ),
+      ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: TaskScreen(),
       ),
     );

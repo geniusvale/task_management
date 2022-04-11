@@ -6,7 +6,17 @@ class EmptyTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Image(
+            image: AssetImage('assets/empty_task.jpg'),
+            height: 250,
+          ),
+          Text('Task Masih Kosong...')
+        ],
+      ),
     );
   }
 }
